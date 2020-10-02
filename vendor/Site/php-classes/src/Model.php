@@ -6,7 +6,7 @@ class Model {
 
 	private $values = [];
 
-	public function __call($name, $args)
+	public function __call($name, $args = [])
 	{
 		$method = substr($name, 0, 3);
 		$fieldName = substr($name, 3, strlen($name));
@@ -25,7 +25,7 @@ class Model {
 	public function setData($data = [])
 	{
 		foreach ($data as $key => $value) {
-			return $this->{"set" . $key}($value);
+			$this->{"set" . $key}($value);
 		}
 	}
 

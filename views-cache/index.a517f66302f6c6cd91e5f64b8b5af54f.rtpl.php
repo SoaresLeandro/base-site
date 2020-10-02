@@ -1,1 +1,1 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><h1>Site</h1>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><h1>Hello World</h1>
