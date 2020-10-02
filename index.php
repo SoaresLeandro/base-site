@@ -13,6 +13,8 @@ $app = new Slim();
 
 $app->config('debug', true);
 
+require_once("users_routes.php");
+
 $app->get('/', function () {
         
 	$page = new Page();
@@ -47,7 +49,6 @@ $app->post('/admin/login', function () {
 	User::login($_POST['email'], $_POST['password']);
 
 	header('Location: /admin');
-
 	exit;
 
 });
@@ -57,7 +58,6 @@ $app->get('/admin/logout', function () {
 	User::logout();
 
 	header('Location: /admin/login');
-
 	exit;
 
 });
@@ -81,6 +81,7 @@ $app->post('/admin/forgot', function () {
 
 	header('Location: /admin/forgot/sent');
 	exit;
+
 });
 
 $app->get('/admin/forgot/sent', function () {
@@ -103,11 +104,33 @@ $app->get('/admin/forgot/reset', function() {
 		"footer" => false
 	]);
 
-	$page->setTpl('forgot-reset');
+	$page->setTpl('forgot-reset', compact([
+		'name' => $user['name'],
+		'code' => $_GET['code']
+	]));
 
 });
 
-require_once("users_routes.php");
+$app->post('/admin/forgot/reset', function() {
+
+	$forgot = User::validForgotDecrypt($_POST['code']);
+
+	User::setForgotUsed($forgot['id']);
+
+	$user = new User();
+
+	$user->get((int)$forgot['id']);
+
+	$user->setPassword($_POST['password']);
+
+	$page = new PageAdmin([
+		"header" => false,
+		"footer" => false
+	]);
+
+	$page->setTpl('forgot-reset-success');
+
+});
 
 $app->run();
 

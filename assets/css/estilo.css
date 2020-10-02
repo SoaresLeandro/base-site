@@ -1,0 +1,93 @@
+* {
+    /*box-sizing: border-box;*/
+}
+
+body {
+    min-height: 75rem;
+    padding-top: 4rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Recursos */
+.bg-nextti {
+    /* background-color: transparent; */
+    /* background: linear-gradient(to bottom, #303030, #121212); */
+    background-color: #2c2c2c;
+}
+
+.titulo-nextti {
+    font-weight: 400;
+}
+
+.titulo-destaque {
+    color: #eee;
+    text-shadow: 2px 2px 6px #303030;
+    font-weight: 400;
+}
+/* /.Recursos */
+
+.navbar-light .navbar-nav .nav-link {
+    color: #eee;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 2;
+    margin-right: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #eee;
+    /* font-weight: 600; */
+    text-shadow: 2px 2px 4px #424242;
+    transition: 2;
+}
+
+.carousel-inner, .carousel-inner img {
+    height: 500px;
+}
+
+/* Home */
+.home {
+    border-bottom: .1px solid #ddd;
+}
+/* /.Home */
+
+/* Serviços */
+.servicos hr{
+    background: #cecaca;
+    padding: .2px;
+    width: 75%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.card {
+    /* box-shadow: 0px 1px 4px #303030; */
+}
+
+.card img {
+    max-height: 200px;
+}
+/* /.Serviços */
+
+/* Produtos */
+.titulo-produtos {
+    font-weight: 400;
+}
+/* /.Produtos */
+
+/* Endereço */
+.endereco, .endereco a {
+    background-color: #303030;
+    color: #eee;
+    line-height: 30px;
+}
+/* /.Endereço */
+
+/* Rodapé */
+footer {
+    background-color: #161515;
+    color: #eee;
+}
+/* /.Rodapé */
